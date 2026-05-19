@@ -1,0 +1,23 @@
+"use client";
+import Feedcard from "../components/Feedcard";
+import axios from "axios";
+import { useState, useEffect } from "react";
+ function Feed(){
+    const [feeddata, setFeeddata] = useState([]);
+    async function fetchfeeddata(){
+        const response = await axios.get("http://localhost:3001/feed");
+        setFeeddata(response.data.posts);
+        console.log(response.data.posts)
+    
+    }
+    useEffect(() => {fetchfeeddata()}, [])
+    
+
+    return(<div>
+        {feeddata.map((feed)=>(
+            <Feedcard key={feed._id} Image={feed.Image} Caption={feed.Caption} />
+        ))}
+    </div>)
+}
+export default Feed; 
+// i did everything correctly but why the image isn't passing through props 
