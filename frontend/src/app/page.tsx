@@ -13,9 +13,9 @@ function Home() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   async function fetchPosts() {
-    const response = await axios.get("https://social-feed-app-wf5p.onrender.com/");
+    const response = await axios.get("https://social-feed-app-wf5p.onrender.com/feed");
     console.log(response.data);
-    setPosts(response.data);
+    setPosts(response.data.posts);
   }
 
   useEffect(() => {
