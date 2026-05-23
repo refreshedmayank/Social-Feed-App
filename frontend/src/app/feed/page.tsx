@@ -20,4 +20,3 @@ import { useState, useEffect } from "react";
     </div>)
 }
 export default Feed; 
-// i did everything correctly but why the image isn't passing through props 

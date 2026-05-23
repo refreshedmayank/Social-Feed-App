@@ -13,7 +13,7 @@ function CreatePost(){
         }
     })
     console.log(response)
-    /// new skill issue arised need to learn how to send form data using axios
+    
    }
 
 
