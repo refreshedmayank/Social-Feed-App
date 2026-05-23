@@ -1,29 +1,34 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useState } from "react";
 import FeedCard from "./FeedCard";
 
-function Home(){
-  const [posts, setPosts] = useState([])
+interface Post {
+  _id: string;
+  Image: string;
+  Caption: string;
+}
 
-  async function fetchPosts(){
-    const response = await axios.get("https://social-feed-app-wf5p.onrender.com/")
-    console.log(response.data)
-    setPosts(response.data)
+function Home() {
+  const [posts, setPosts] = useState<Post[]>([]);
+
+  async function fetchPosts() {
+    const response = await axios.get("https://social-feed-app-wf5p.onrender.com/");
+    console.log(response.data);
+    setPosts(response.data);
   }
 
-  useEffect(() => {fetchPosts()}, [])
+  useEffect(() => {
+    fetchPosts();
+  }, []);
 
-  return(
+  return (
     <div>
-      
-
-      {posts.map((post)=>(
+      {posts.map((post) => (
         <FeedCard key={post._id} Image={post.Image} Caption={post.Caption} />
       ))}
     </div>
-  )
+  );
 }
 
 export default Home;
