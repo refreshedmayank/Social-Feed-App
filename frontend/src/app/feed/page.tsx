@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
  function Feed(){
     const [feeddata, setFeeddata] = useState([]);
     async function fetchfeeddata(){
-        const response = await axios.get("http://localhost:3001/feed");
+        const response = await axios.get("https://social-feed-app-wf5p.onrender.com/");
         setFeeddata(response.data.posts);
         console.log(response.data.posts)
     

@@ -7,7 +7,7 @@ function CreatePost(){
     const Image = formdata.get("Image");
     const Caption = formdata.get("Caption")
     console.log(Image)
-    const response = await axios.post("http://localhost:3001/create-post", formdata, {
+    const response = await axios.post("https://social-feed-app-wf5p.onrender.com/", formdata, {
         headers:{
             "Content-Type": "multipart/form-data"
         }
