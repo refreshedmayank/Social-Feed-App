@@ -1,4 +1,9 @@
-function FeedCard(props) {
+interface FeedCardProps {
+  Image: string;
+  Caption: string;
+}
+
+function FeedCard(props: FeedCardProps) {
   return (
     <div style={styles.wrapper}>
       <div style={styles.card}>
@@ -16,7 +21,7 @@ const styles = {
     alignItems: "center",
     minHeight: "100vh",
     padding: "0 16px",
-    boxSizing: "border-box",
+    boxSizing: "border-box" as const,
   },
   card: {
     background: "#fff",
@@ -29,7 +34,7 @@ const styles = {
   image: {
     width: "100%",
     aspectRatio: "4/3",
-    objectFit: "cover",
+    objectFit: "cover" as const,
     display: "block",
   },
   caption: {
